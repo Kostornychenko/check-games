@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Games</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Raleway:100,300,400,500,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/modernizr.js"></script>
+</head>
+<body>
+<div class="layout">
+<header id="header" class="section">
+    <a href="/" class="logo">Check Games</a>
+    <ul class="main-nav">
+        <?php foreach($this->categories as $array => $item) { ?>
+            <li><a id="<?php echo mb_strtolower(str_replace(" ", "-", $item['name'])); ?>" href="<?php echo $this->url(array('controller'=>'index','action'=>'category', 'slug' => mb_strtolower(str_replace(" ", "-", $item['name']))), 'category', true); ?>"><?php echo $item['name']; ?></a></li>
+        <?php } ?>
+    </ul>
+</header>
+<?php
+    $ctrlName = Zend_Controller_Front::getInstance()->getRequest()->getControllerName();
+    if ($ctrlName != "auth") {
+        echo $this->partial('partials/banners.phtml');
+    }
+?>
+
+<main id="content" class="section">
+    <?php echo $this->layout()->content; ?>
+</main>
+<div class="hfooter"></div>
+</div>
+<footer id="footer">
+    <div class="section">
+        <ul>
+            <li class="home"><a href="/">Check Games</a></li>
+            <?php foreach($this->pages as $array => $item) { ?>
+                <li><a href=""><?php echo $item['title']; ?></a></li>
+            <?php } ?>
+        </ul>
+        <p class="copyright">Copyright @ 2015 Gamestudio</p>
+        <p class="privacy"><a href="javascript:void(0);">Privacy & Terms of Use</a></p>
+    </div>
+</footer>
+
+<script src="/js/jquery-2.2.4.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/progressbar.min.js"></script>
+<script src="/js/common.js"></script>
+
+</body>
+</html>

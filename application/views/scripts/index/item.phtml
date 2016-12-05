@@ -1,0 +1,26 @@
+	<div class="game-detail">
+		<div class="main-image">
+			<img src="/images/content/img1.jpg" alt="">
+			<p class="btn-set">
+				<a href="<?php echo $this->post['url']; ?>" target="_blank" rel="nofollow" class="btn">play now</a>
+				<a href="<?php echo $this->post['trailer']; ?>" class="btn trailer">watch trailer</a>
+			</p>
+		</div>
+		<div class="content-wrap">
+			<div class="title">
+				<h3><?php echo $this->post['title']; ?></h3>
+				<p class="date">First Released <?php echo date("M d, Y", $this->post['date']); ?></p>
+			</div>
+			<div class="progressbar" data-value="<?php echo $this->post['rating']; ?>"></div>
+			<div class="description">
+				<?php echo $this->post['content']; ?>
+			</div>
+			<div class="gallery">
+				<figure><img src="/images/content/img2.jpg" alt=""></figure>
+				<figure><img src="/images/content/img2.jpg" alt=""></figure>
+				<figure><img src="/images/content/img2.jpg" alt=""></figure>
+				<figure><img src="/images/content/img2.jpg" alt=""></figure>
+			</div>
+			<p class="btn-set"><a href="<?php echo $this->post['url']; ?>" target="_blank" rel="nofollow" class="btn">play now</a></p>
+		</div>
+	</div>

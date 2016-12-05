@@ -1,0 +1,35 @@
+<script>
+    var current = $("#<?php echo $this->category['slug']; ?>");
+    current.siblings().removeClass("active");
+    current.addClass("active");
+
+</script>
+<div class="cat_desc">
+    <?php echo $this->category['content']; ?>
+</div>
+<?php
+if ($this->items) {
+foreach($this->items as $array => $item) { ?>
+    <div class="game-item">
+        <div class="video-wrap"><iframe width="100%" height="305" src="<?php echo $item['trailer']; ?>" frameborder="0" allowfullscreen=""></iframe></div>
+        <div class="content-wrap">
+            <div class="title-wrap">
+                <div class="title">
+                    <h3><a href="<?php echo mb_strtolower(str_replace(" ", "-", $item['title'])); ?>.html"><?php echo $item['title']; ?></a></h3>
+                    <p class="date">First Released <?php echo date("M d, Y", $item['date']); ?></p>
+                </div>
+                <div class="progressbar" data-value="<?php echo $item['rating']; ?>"></div>
+            </div>
+            <div class="description">
+                <?php echo $item['desc']; ?>
+            </div>
+            <p class="btn-set">
+                <a href="<?php echo $item['url']; ?>" class="btn" rel="nofollow" target="_blank">play now</a>
+                <a href="<?php echo $this->url(array('controller'=>'index','action'=>'item', 'slug' => mb_strtolower(str_replace(" ", "-", $item['title']))), 'item', true); ?>" class="btn white">Info</a>
+            </p>
+        </div>
+    </div>
+<?php } ?>
+<?php } else { ?>
+    <p class="error_mess">Sorry, in this category is no games</p>
+<?php } ?>

@@ -1,0 +1,65 @@
+<aside id="top-zone" class="section">
+    <img src="/images/content/img1.jpg" alt="">
+    <div class="content">
+        <h1><a href="javascript:void(0);">Clash of Clans</a></h1>
+        <h3>See if your career path will lead you to Supercell.</h3>
+        <p>Build your own medieval village, raise an army of bloodthirsty barbarians and wizards and battle with other players.</p>
+        <p class="btn-set"><a href="javascript:void(0);" class="btn">play now</a><a href="javascript:void(0);" class="btn trailer">watch trailer</a></p>
+    </div>
+</aside>
+
+<div class="slider owl-carousel">
+    <div>
+        <a href="javascript:void(0);"><img src="/images/content/img2.jpg" alt=""></a>
+        <span class="label">new</span>
+        <div class="item-title">
+            <h3><a href="javascript:void(0);">Battelfied 4</a></h3>
+            <p class="date">First Released Nov 17, 2016</p>
+        </div>
+    </div>
+    <div>
+        <a href="javascript:void(0);"><img src="/images/content/img3.jpg" alt=""></a>
+        <span class="label">new</span>
+        <div class="item-title">
+            <h3><a href="javascript:void(0);">Call of Duty</a></h3>
+            <p class="date">First Released Nov 17, 2016</p>
+        </div>
+    </div>
+    <div>
+        <a href="javascript:void(0);"><img src="/images/content/img4.jpg" alt=""></a>
+        <span class="label">new</span>
+        <div class="item-title">
+            <h3><a href="javascript:void(0);">Mortal Kombat X</a></h3>
+            <p class="date">First Released Nov 17, 2016</p>
+        </div>
+    </div>
+    <div>
+        <a href="javascript:void(0);"><img src="images/content/img2.jpg" alt=""></a>
+        <span class="label">new</span>
+        <div class="item-title">
+            <h3><a href="javascript:void(0);">Mortal Kombat X</a></h3>
+            <p class="date">First Released Nov 17, 2016</p>
+        </div>
+    </div>
+</div>
+<?php foreach($this->items as $array => $item) { ?>
+<div class="game-item">
+    <div class="video-wrap"><iframe width="100%" height="305" src="<?php echo $item['trailer']; ?>" frameborder="0" allowfullscreen=""></iframe></div>
+    <div class="content-wrap">
+        <div class="title-wrap">
+            <div class="title">
+                <h3><a href="<?php echo mb_strtolower(str_replace(" ", "-", $item['title'])); ?>.html"><?php echo $item['title']; ?></a></h3>
+                <p class="date">First Released <?php echo date("M d, Y", $item['date']); ?></p>
+            </div>
+            <div class="progressbar" data-value="<?php echo $item['rating']; ?>"></div>
+        </div>
+        <div class="description">
+            <?php echo $item['desc']; ?>
+        </div>
+        <p class="btn-set">
+            <a href="<?php echo $item['url']; ?>" class="btn" rel="nofollow" target="_blank">play now</a>
+            <a href="<?php echo $this->url(array('controller'=>'index','action'=>'item', 'slug' => mb_strtolower(str_replace(" ", "-", $item['title']))), 'item', true); ?>" class="btn white">Info</a>
+        </p>
+    </div>
+</div>
+<?php } ?>

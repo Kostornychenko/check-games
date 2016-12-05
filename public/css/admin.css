@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+    background: #292d3e url(../images/blocks/body-bg.png) 50% 0 no-repeat;
+}
+.wrap {
+    width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+    background: #fff;
+    height: auto;
+    min-height: 100%;
+    overflow: hidden;
+}
+.header {
+    float: left;
+    width: 100%;
+}
+.content {
+    float: left;
+    width: 100%;
+    padding: 20px 0;
+}
+.hfooter {
+    width: 100%;
+    float: left;
+    height: 50px;
+}
+.footer {
+    width: 100%;
+    float: left;
+    height: 50px;
+    margin: -50px 0 0 0;
+}
+.footer .wr {
+    width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+.footer p {
+    font-weight: 700;
+    border-top: 1px solid #eee;
+}
+.table thead td {
+    font-weight: 700;
+}
