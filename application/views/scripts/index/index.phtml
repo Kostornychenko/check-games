@@ -1,50 +1,37 @@
 <aside id="top-zone" class="section">
-    <img src="/images/content/img1.jpg" alt="">
+    <?php foreach($this->maingame as $array => $item) { ?>
+    <img src="/images/content/games/<?php echo $item['main_img']; ?>" alt="">
     <div class="content">
-        <h1><a href="javascript:void(0);">Clash of Clans</a></h1>
-        <h3>See if your career path will lead you to Supercell.</h3>
-        <p>Build your own medieval village, raise an army of bloodthirsty barbarians and wizards and battle with other players.</p>
-        <p class="btn-set"><a href="javascript:void(0);" class="btn">play now</a><a href="javascript:void(0);" class="btn trailer">watch trailer</a></p>
+        <h1><a href="<?php echo mb_strtolower(str_replace(" ", "-", $item['title'])); ?>.html"><?php echo $item['title']; ?></a></h1>
+        <p><?php echo $item['desc']; ?></p>
+        <p class="btn-set">
+            <a href="<?php echo $item['url']; ?>" target="_blank" rel="nofollow" class="btn">play now</a>
+            <a href="<?php echo $this->url(array('controller'=>'index','action'=>'item', 'slug' => mb_strtolower(str_replace(" ", "-", $item['title']))), 'item', true); ?>" class="btn trailer">watch trailer</a></p>
     </div>
+    <?php } ?>
 </aside>
 
 <div class="slider owl-carousel">
+    <?php foreach($this->slider as $array => $item) { ?>
     <div>
-        <a href="javascript:void(0);"><img src="/images/content/img2.jpg" alt=""></a>
+        <a href="<?php echo mb_strtolower(str_replace(" ", "-", $item['title'])); ?>.html"><img src="/images/content/games/<?php echo $item['main_img']; ?>" alt=""></a>
         <span class="label">new</span>
         <div class="item-title">
-            <h3><a href="javascript:void(0);">Battelfied 4</a></h3>
-            <p class="date">First Released Nov 17, 2016</p>
+            <h3><a href="<?php echo mb_strtolower(str_replace(" ", "-", $item['title'])); ?>.html"><?php echo $item['title']; ?></a></h3>
+            <p class="date">First Released <?php echo date("M d, Y", $item['date']); ?></p>
         </div>
     </div>
-    <div>
-        <a href="javascript:void(0);"><img src="/images/content/img3.jpg" alt=""></a>
-        <span class="label">new</span>
-        <div class="item-title">
-            <h3><a href="javascript:void(0);">Call of Duty</a></h3>
-            <p class="date">First Released Nov 17, 2016</p>
-        </div>
-    </div>
-    <div>
-        <a href="javascript:void(0);"><img src="/images/content/img4.jpg" alt=""></a>
-        <span class="label">new</span>
-        <div class="item-title">
-            <h3><a href="javascript:void(0);">Mortal Kombat X</a></h3>
-            <p class="date">First Released Nov 17, 2016</p>
-        </div>
-    </div>
-    <div>
-        <a href="javascript:void(0);"><img src="images/content/img2.jpg" alt=""></a>
-        <span class="label">new</span>
-        <div class="item-title">
-            <h3><a href="javascript:void(0);">Mortal Kombat X</a></h3>
-            <p class="date">First Released Nov 17, 2016</p>
-        </div>
-    </div>
+    <?php } ?>
 </div>
 <?php foreach($this->items as $array => $item) { ?>
 <div class="game-item">
-    <div class="video-wrap"><iframe width="100%" height="305" src="<?php echo $item['trailer']; ?>" frameborder="0" allowfullscreen=""></iframe></div>
+    <div class="video-wrap">
+        <?php if(!empty($item['trailer'])) { ?>
+        <iframe width="100%" height="305" src="<?php echo $item['trailer']; ?>" frameborder="0" allowfullscreen=""></iframe>
+        <?php } else { ?>
+            <img src="/images/content/games/<?php echo $item['main_img']; ?>" alt="">
+        <?php } ?>
+    </div>
     <div class="content-wrap">
         <div class="title-wrap">
             <div class="title">

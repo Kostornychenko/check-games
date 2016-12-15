@@ -10,11 +10,19 @@ class IndexController extends Zend_Controller_Action {
         /*pages list*/
         $pages = new Application_Model_DbTable_Pages();
         $this->view->pages = $pages->getPagesList();
+
+        /*banners*/
+        $settings = new Application_Model_DbTable_Settings();
+        $this->view->settings = $settings->getSettings();
     }
 
     public function indexAction() {
         $items = new Application_Model_DbTable_Content();
         $this->view->items = $items->getItemsList();
+
+        $this->view->slider = $items->getSlider();
+
+        $this->view->maingame = $items->getMainGame();
     }
 
     public function itemAction() {
@@ -33,6 +41,14 @@ class IndexController extends Zend_Controller_Action {
 
         $items = new Application_Model_DbTable_Content();
         $this->view->items = $items->getItemsByCategory((int)$category['id']);
+    }
+
+    public function pageAction() {
+        $slug = $this->_getParam('slug');
+
+        $page = new Application_Model_DbTable_Pages();
+        $this->view->page = $page->getPageBySlug($slug);
+
     }
 
 

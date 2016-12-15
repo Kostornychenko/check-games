@@ -1,0 +1,7 @@
+<script>
+    var current = $("#pages");
+    current.siblings().removeClass("active");
+    current.addClass("active");
+</script>
+<?php echo $this->form; ?>
+<a class="btn btn-danger back" href="<?php echo $this->url(array('module'=>'admin', 'controller'=>'pages', 'action'=>'index')) ?>">Cancel</a>

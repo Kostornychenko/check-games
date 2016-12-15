@@ -3,3 +3,27 @@
 	current.siblings().removeClass("active");
 	current.addClass("active");
 </script>
+<a href="<?php echo $this->url(array('module'=>'admin', 'controller'=>'pages', 'action'=>'add')) ?>" class="btn btn-info mbtn">Add Page</a>
+<table class="table">
+    <thead>
+    <tr>
+        <td width="5%">ID</td>
+        <td width="20%">Name</td>
+        <td width="55%">Description</td>
+        <td width="20%">Actions</td>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($this->list as $array => $item) { ?>
+        <tr>
+            <td><?php echo $item['id']; ?></td>
+            <td><?php echo $item['title']; ?></td>
+            <td><?php echo $item['content']; ?></td>
+            <td>
+                <a href="/admin/pages/edit/id/<?php echo $item['id']; ?>" class="btn btn-info">Edit</a>
+                <a href="/admin/pages/remove/id/<?php echo $item['id']; ?>" class="btn btn-danger">Remove</a>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>

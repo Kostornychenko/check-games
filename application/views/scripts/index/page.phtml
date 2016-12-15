@@ -1,0 +1,10 @@
+<script>
+    var current = $("#<?php echo $this->page['slug']; ?>");
+    current.siblings().removeClass("active");
+    current.addClass("active");
+
+</script>
+<div class="cat_desc">
+    <h1><?php echo $this->page['title']; ?></h1>
+    <?php echo $this->page['content']; ?>
+</div>

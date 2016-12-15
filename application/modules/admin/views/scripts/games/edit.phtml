@@ -1,0 +1,12 @@
+<script>
+    $(function() {
+        var current = $("#games");
+        current.siblings().removeClass("active");
+        current.addClass("active");
+
+        $("#main_img-label").append("<img class='main_img' src='/images/content/games/<?php echo $this->formdata['main_img']; ?>'>");
+    });
+</script>
+<?php echo $this->form ?>
+<a class="btn btn-danger back" href="<?php echo $this->url(array('module'=>'admin', 'controller'=>'games', 'action'=>'index')) ?>">Cancel</a>
+

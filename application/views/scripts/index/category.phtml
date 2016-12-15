@@ -11,7 +11,13 @@
 if ($this->items) {
 foreach($this->items as $array => $item) { ?>
     <div class="game-item">
-        <div class="video-wrap"><iframe width="100%" height="305" src="<?php echo $item['trailer']; ?>" frameborder="0" allowfullscreen=""></iframe></div>
+        <div class="video-wrap">
+            <?php if(!empty($item['trailer'])) { ?>
+                <iframe width="100%" height="305" src="<?php echo $item['trailer']; ?>" frameborder="0" allowfullscreen=""></iframe>
+            <?php } else { ?>
+                <img src="/images/content/games/<?php echo $item['main_img']; ?>" alt="">
+            <?php } ?>
+        </div>
         <div class="content-wrap">
             <div class="title-wrap">
                 <div class="title">

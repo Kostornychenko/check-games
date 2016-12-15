@@ -625,8 +625,10 @@ body {
 }
 /* line 3, ../scss/layouts/_header.scss */
 #header .logo {
+  background: url("/images/logo.png") top left no-repeat;
   float: left;
-  font-size: 26px;
+  padding: 0 0 0 80px;
+  font-size: 39px;
   font-weight: 800;
   color: #fff;
   display: block;
@@ -651,8 +653,7 @@ body {
 }
 /* line 12, ../scss/layouts/_header.scss */
 .main-nav li {
-  float: left;
-  width: 16.66%;
+  display: table-cell;
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
@@ -690,11 +691,11 @@ body {
 /* line 1, ../scss/layouts/_footer.scss */
 .hfooter {
     width: 100%;
-    height: 110px;
+    height: 114px;
 }
 #footer {
-    margin: -110px 0 0 0;
-  height: 110px;
+  margin: -114px 0 0 0;
+  height: 114px;
   background: #fff;
   padding-top: 25px;
 }
@@ -706,7 +707,7 @@ body {
 #footer ul li {
   display: inline-block;
   vertical-align: middle;
-  margin: 0 21px 0 26px;
+  margin: 0 15px;
 }
 /* line 8, ../scss/layouts/_footer.scss */
 #footer ul li.home {
@@ -721,7 +722,7 @@ body {
 /* line 12, ../scss/layouts/_footer.scss */
 #footer ul a {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
 }
 /* line 14, ../scss/layouts/_footer.scss */
@@ -732,7 +733,7 @@ body {
 #footer .privacy, #footer .copyright {
   display: inline-block;
   font-family: "Gotham Book";
-  font-size: 12px;
+  font-size: 14px;
   color: #2e343b;
   margin: 0 6px 15px;
   letter-spacing: -0.04em;
@@ -797,7 +798,6 @@ body {
   height: 15px;
   margin-top: -7px;
 }
-
 /* line 18, ../scss/layouts/_forms.scss */
 a.btn {
   text-decoration: none;
@@ -824,6 +824,10 @@ img {
   color: #fff;
   padding: 0;
   margin-bottom: -20px;
+}
+#top-zone img {
+  width: 960px;
+  height: 400px;
 }
 /* line 5, ../scss/components/_content.scss */
 #top-zone .content {
@@ -876,7 +880,7 @@ img {
 /* line 16, ../scss/components/_content.scss */
 #top-zone p {
   font-weight: 100;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.3;
   letter-spacing: -0.025em;
 }
@@ -945,7 +949,7 @@ img {
 /* line 37, ../scss/components/_content.scss */
 .date {
   font-family: "Lato", sans-serif;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.03em;
 }
 
@@ -997,11 +1001,11 @@ img {
     color: #fff;
 }
 /* line 49, ../scss/components/_content.scss */
-.game-item .content-wrap p {
-  font-size: 12px;
+.game-item .content-wrap {
+  font-size: 14px;
 }
-.game-item .description p {
-    font-size: 14px;
+.game-item .description {
+    font-size: 16px;
 }
 /* line 53, ../scss/components/_content.scss */
 .progressbar {
@@ -1032,6 +1036,10 @@ img {
   -moz-box-shadow: 5px 8px 14px 0px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 5px 8px 14px 0px rgba(0, 0, 0, 0.4);
   box-shadow: 5px 8px 14px 0px rgba(0, 0, 0, 0.4);
+}
+.game-detail .main-image img {
+  width: 960px;
+  height: 400px;
 }
 /* line 63, ../scss/components/_content.scss */
 .game-detail .main-image .btn-set {

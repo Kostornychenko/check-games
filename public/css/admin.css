@@ -43,3 +43,21 @@ html, body {
 .table thead td {
     font-weight: 700;
 }
+.mbtn {
+    margin: 20px 0;
+}
+
+.back {
+    margin-top: -55px;
+    float: right;
+}
+.main_img {
+    width: 960px;
+    display: block;
+}
+textarea.form-control {
+    height: 150px;
+}
+dt {
+    margin-top: 20px;
+}

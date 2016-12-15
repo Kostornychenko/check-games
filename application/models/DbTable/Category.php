@@ -21,5 +21,29 @@ class Application_Model_DbTable_Category extends Zend_Db_Table_Abstract {
         $row = $this->fetchRow('slug = "'.$slug.'"');
         return $row->toArray();
     }
+
+//    admin
+
+    public function addCategory($name, $content) {
+        $data = array(
+            'name' => $name,
+            'content' => $content,
+            'slug' => mb_strtolower(str_replace(" ", "-", $name))
+        );
+        $this->insert($data);
+    }
+
+    public function updateCategory($name, $content, $id) {
+        $data = array(
+            'name' => $name,
+            'content' => $content,
+            'slug' => mb_strtolower(str_replace(" ", "-", $name))
+        );
+        $this->update($data, 'id = ' . (int)$id);
+    }
+
+    public function removeCategory($id) {
+        $this->delete('id = ' . (int)$id);
+    }
 }
 ?>

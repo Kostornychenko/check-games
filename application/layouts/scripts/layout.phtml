@@ -5,6 +5,7 @@
     <title>Check Games</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato|Raleway:100,300,400,500,700,800" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/favicon.ico">
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/modernizr.js"></script>
 </head>
@@ -20,10 +21,16 @@
 </header>
 <?php
     $ctrlName = Zend_Controller_Front::getInstance()->getRequest()->getControllerName();
-    if ($ctrlName != "auth") {
-        echo $this->partial('partials/banners.phtml');
-    }
-?>
+    if ($ctrlName != "auth") { ?>
+        <div class="section banners">
+            <?php if (!empty($this->settings[0]['left_banner'])) { ?>
+                <div class="left"><?php echo $this->settings[0]['left_banner']; ?></div>
+            <?php } ?>
+            <?php if (!empty($this->settings[0]['right_banner'])) { ?>
+                <div class="right"><?php echo $this->settings[0]['right_banner']; ?></div>
+            <?php } ?>
+        </div>
+    <?php } ?>
 
 <main id="content" class="section">
     <?php echo $this->layout()->content; ?>
@@ -35,11 +42,11 @@
         <ul>
             <li class="home"><a href="/">Check Games</a></li>
             <?php foreach($this->pages as $array => $item) { ?>
-                <li><a href=""><?php echo $item['title']; ?></a></li>
+                <li><a href="<?php echo $this->url(array('controller'=>'index','action'=>'page', 'slug' => mb_strtolower(str_replace(" ", "-", $item['title']))), 'page', true); ?>"><?php echo $item['title']; ?></a></li>
             <?php } ?>
         </ul>
-        <p class="copyright">Copyright @ 2015 Gamestudio</p>
-        <p class="privacy"><a href="javascript:void(0);">Privacy & Terms of Use</a></p>
+        <p class="privacy">Copyright @ <?php echo date('Y')?> <?php echo $_SERVER['SERVER_NAME']?></p>
+
     </div>
 </footer>
 

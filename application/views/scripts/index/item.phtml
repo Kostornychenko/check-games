@@ -1,9 +1,11 @@
 	<div class="game-detail">
 		<div class="main-image">
-			<img src="/images/content/img1.jpg" alt="">
+			<img src="/images/content/games/<?php echo $this->post['main_img']; ?>" alt="">
 			<p class="btn-set">
 				<a href="<?php echo $this->post['url']; ?>" target="_blank" rel="nofollow" class="btn">play now</a>
+				<?php if(!empty($item['trailer'])) { ?>
 				<a href="<?php echo $this->post['trailer']; ?>" class="btn trailer">watch trailer</a>
+				<?php } ?>
 			</p>
 		</div>
 		<div class="content-wrap">
@@ -16,10 +18,10 @@
 				<?php echo $this->post['content']; ?>
 			</div>
 			<div class="gallery">
-				<figure><img src="/images/content/img2.jpg" alt=""></figure>
-				<figure><img src="/images/content/img2.jpg" alt=""></figure>
-				<figure><img src="/images/content/img2.jpg" alt=""></figure>
-				<figure><img src="/images/content/img2.jpg" alt=""></figure>
+				<figure><img src="/images/no-photo.png" alt=""></figure>
+				<figure><img src="/images/no-photo.png" alt=""></figure>
+				<figure><img src="/images/no-photo.png" alt=""></figure>
+				<figure><img src="/images/no-photo.png" alt=""></figure>
 			</div>
 			<p class="btn-set"><a href="<?php echo $this->post['url']; ?>" target="_blank" rel="nofollow" class="btn">play now</a></p>
 		</div>
