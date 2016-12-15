@@ -1,0 +1,5 @@
+1. add slider/main game from admin
+2. cut main content for desc
+3. images gallery
+4. rating in form
+5. editor in form
